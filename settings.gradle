@@ -1,0 +1,4 @@
+rootProject.name = 'template-spring-webflux'
+include 'contract'
+include 'domain'
+include 'infrastructure'
