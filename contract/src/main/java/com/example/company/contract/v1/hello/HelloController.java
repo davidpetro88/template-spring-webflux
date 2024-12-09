@@ -1,9 +1,12 @@
-package com.example.webflux.contract.v1.hello;
+package com.example.company.contract.v1.hello;
 
-import com.example.webflux.domain.port.HelloApi;
+import com.example.company.domain.port.HelloApi;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +21,8 @@ import reactor.core.publisher.Mono;
 public class HelloController {
 
     private final HelloApi helloApi;
+
+    public record Message(@NotNull String message) { }
 
     @Operation(summary = "Hello World", description = "Hello World")
     @ApiResponses({
@@ -39,8 +44,8 @@ public class HelloController {
             @ApiResponse(responseCode = "400", description = "Bad Request")
     })
     @PostMapping("message")
-    public Mono<String> helloWorld(String message) {
-        return helloApi.helloWorld(message);
+    public Mono<String> helloWorld(@RequestBody @Valid Message message) {
+        return helloApi.helloWorld(message.message());
     }
 
 }

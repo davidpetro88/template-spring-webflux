@@ -1,6 +1,6 @@
-package com.example.webflux.infrastructure;
+package com.example.company.infrastructure;
 
-import com.example.webflux.domain.port.HelloSpi;
+import com.example.company.domain.port.HelloSpi;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

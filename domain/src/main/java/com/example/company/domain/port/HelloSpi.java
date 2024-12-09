@@ -1,10 +1,9 @@
-package com.example.webflux.domain.port;
+package com.example.company.domain.port;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface HelloApi {
-
+public interface HelloSpi {
     Flux<String> helloWorld();
     Mono<String> helloWorld(String message);
 }

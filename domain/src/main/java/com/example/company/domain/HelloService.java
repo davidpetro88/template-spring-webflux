@@ -1,7 +1,7 @@
-package com.example.webflux.domain;
+package com.example.company.domain;
 
-import com.example.webflux.domain.port.HelloApi;
-import com.example.webflux.domain.port.HelloSpi;
+import com.example.company.domain.port.HelloApi;
+import com.example.company.domain.port.HelloSpi;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
